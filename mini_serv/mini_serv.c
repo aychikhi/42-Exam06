@@ -86,7 +86,7 @@ int main(int ac, char **av) {
 	serv.sin_addr.s_addr = htonl(2130706433);
 	serv.sin_port = htons(atoi(av[1]));
 
-	if (bind(sockfd, (struct sockaddr *)&serv, sizeof(serv)) || listen(sockfd, 128)) fatal();
+	if (bind(sockfd, (const struct sockaddr *)&serv, sizeof(serv)) || listen(sockfd, 128)) fatal();
 	
 	FD_ZERO(&afds);
 	FD_SET(sockfd, &afds);
